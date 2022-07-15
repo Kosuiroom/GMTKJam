@@ -5,7 +5,7 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
-		state_machine.transition_to("Jump")
+		state_machine.transition_to("Run")
 		return
 
 #	if Input.is_action_just_pressed("Jump"):

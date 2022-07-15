@@ -15,6 +15,10 @@ jump_height = 100.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.1, 0.4 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, -1 )
 scale = Vector2( 0.390428, 0.391808 )
