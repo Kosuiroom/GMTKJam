@@ -1,12 +1,17 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://templatetest/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://templatetest/npc/monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 195.5, 10 )
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 215, 384 )
+position = Vector2( 466, 44 )
 
-[node name="Monster" parent="." instance=ExtResource( 2 )]
-position = Vector2( 930, 329 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 479.5, 133 )
+shape = SubResource( 1 )
