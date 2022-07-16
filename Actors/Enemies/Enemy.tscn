@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/EnemyLayer 1.png-6c7bbf34791370dc236471f0afb2d499.stex"
+
+[sub_resource type="Animation" id=2]
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 ]
+}
+
+[node name="Node2D" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+hframes = 3
+vframes = 3
+__meta__ = {
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL3R1dmFuL1BpY3R1cmVzL0FzZXByaXRlL0RpY2UgR2FtZS9EaWNlX0dhbWVfRW5lbXkuYXNlcHJpdGUKbGF5ZXJ8PUxheWVyIDEKb3BfZXhwfD1UcnVlCm9fZm9sZGVyfD0Kb19uYW1lfD1FbmVteQpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 2 )
