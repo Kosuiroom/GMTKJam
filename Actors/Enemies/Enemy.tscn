@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/EnemyLayer 1.png-6c7bbf34791370dc236471f0afb2d499.stex"
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( 1, 0 )
+b = Vector2( -12, 17 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -1, 0 )
+b = Vector2( 12, 16 )
 
 [sub_resource type="Animation" id=2]
 length = 1.1
@@ -35,17 +43,32 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 ]
 }
 
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 14, -5 )
+b = Vector2( -14, -5 )
+
 [node name="Node2D" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 hframes = 5
 vframes = 5
-frame = 21
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL3R1dmFuL1BpY3R1cmVzL0FzZXByaXRlL0RpY2UgR2FtZS9EaWNlX0dhbWVfRW5lbXkuYXNlcHJpdGUKbGF5ZXJ8PUxheWVyIDEKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9RW5lbXkKb25seV92aXNpYmxlfD1GYWxzZQpvX2V4X3B8PQo="
 }
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -22 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -22 )
+shape = SubResource( 5 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Enemy_Idle"
 anims/Enemy_Death = SubResource( 2 )
 anims/Enemy_Idle = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )

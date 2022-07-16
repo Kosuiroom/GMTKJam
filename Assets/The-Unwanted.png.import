@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player DancingPlayer.png-ac7dc4f3b47f03eed9ae080f031ae946.stex"
+path="res://.import/The-Unwanted.png-f8e839215358993b62df1cec2d12e798.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Menues/Player DancingPlayer.png"
-dest_files=[ "res://.import/Player DancingPlayer.png-ac7dc4f3b47f03eed9ae080f031ae946.stex" ]
+source_file="res://Assets/The-Unwanted.png"
+dest_files=[ "res://.import/The-Unwanted.png-f8e839215358993b62df1cec2d12e798.stex" ]
 
 [params]
 
