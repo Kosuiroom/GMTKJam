@@ -24,7 +24,7 @@ margin_left = 1.0
 margin_right = -11.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 485, 174 )
+position = Vector2( 370, 75 )
 jump_time_to_descent = 1.0
 
 [node name="platform" type="StaticBody2D" parent="."]
