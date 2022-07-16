@@ -45,7 +45,7 @@ func generate_perimeter() -> void:
 	# of the map, respectively.
 	for x in [0, size.x - 1]:
 		for y in range(0, 1500):
-			_tile_map.set_cell(x, y, _pick_random_texture(Cell.OUTER))
+			_tile_map.set_cell(x, y, 0)
 
 
 func generate_inner() -> void:
@@ -61,7 +61,7 @@ func generate_inner() -> void:
 func get_random_tile(probability: float) -> int:
 	# Randomly picks a tile id between `Cell.GROUND` and `Cell.OBSTACLE` types given the ground probability.
 	# Returns the id of the cell in the TileSet resource.
-	return _pick_random_texture(Cell.GROUND) if _rng.randf() < probability else _pick_random_texture(Cell.OBSTACLE)
+	return _pick_random_texture(1) if _rng.randf() < probability else _pick_random_texture(2)
 
 
 func _pick_random_texture(cell_type: int) -> int:
