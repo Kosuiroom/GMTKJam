@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Tilemap.png" type="Texture" id=1]
 [ext_resource path="res://GameScene/GameWorld.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Health.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Score.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/PowerPickup.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 82.5, 18.5 )
@@ -184,9 +185,9 @@ margin_bottom = 8.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 269.0
+margin_left = 243.0
 margin_top = 6.0
-margin_right = 269.0
+margin_right = 243.0
 margin_bottom = 6.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -207,6 +208,9 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatform"]
 position = Vector2( 49.5, 14.5 )
 shape = SubResource( 4 )
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 347, 147 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 40, 7 )

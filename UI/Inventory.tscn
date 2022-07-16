@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Icons/Dice_Game_Ghost.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Icons/Dice_Game_Heartup.png" type="Texture" id=2]
+[ext_resource path="res://UI/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Icons/Inventory Slots - Open.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Icons/Dice_Game_Slowdown.png" type="Texture" id=4]
 
 [node name="Inventory" type="GridContainer"]
 anchor_right = 1.0
@@ -14,6 +12,7 @@ margin_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
 
 [node name="Slot4" type="TextureRect" parent="."]
 margin_right = 32.0
@@ -23,7 +22,6 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Slot4"]
 position = Vector2( 16, 40 )
-texture = ExtResource( 1 )
 
 [node name="Slot5" type="TextureRect" parent="."]
 margin_top = 36.0
@@ -34,7 +32,6 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Slot5"]
 position = Vector2( 16, 26 )
-texture = ExtResource( 2 )
 
 [node name="Slot6" type="TextureRect" parent="."]
 margin_top = 72.0
@@ -45,4 +42,3 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Slot6"]
 position = Vector2( 26, 26 )
-texture = ExtResource( 4 )
