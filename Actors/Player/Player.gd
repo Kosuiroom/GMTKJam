@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 onready var fsm := $StateMachine
 onready var sprite = $Sprite
+onready var animation = $AnimationPlayer
 
 var velocity := Vector2.ZERO
 export var playerspeed = 200.0
