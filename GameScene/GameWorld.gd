@@ -71,9 +71,9 @@ func _pick_random_texture(cell_type: int) -> int:
 	if cell_type == Cell.OUTER:
 		interval = Vector2(0, 0)
 	elif cell_type == Cell.GROUND:
-		interval = Vector2(2, 2)
-	elif cell_type == Cell.OBSTACLE:
 		interval = Vector2(1, 1)
+	elif cell_type == Cell.OBSTACLE:
+		interval = Vector2(2, 5)
 	return _rng.randi_range(interval.x, interval.y)
 	
 #func SpawnUi() -> void:
