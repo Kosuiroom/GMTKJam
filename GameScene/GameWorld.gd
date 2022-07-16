@@ -45,7 +45,7 @@ func generate_perimeter() -> void:
 	# of the map, respectively.
 	for x in [0, size.x - 1]:
 		for y in range(0, 1500):
-			_tile_map.set_cell(x, y, 0)
+			_tile_map.set_cell(x, y, _pick_random_texture(Cell.OUTER))
 
 
 func generate_inner() -> void:
@@ -61,7 +61,7 @@ func generate_inner() -> void:
 func get_random_tile(probability: float) -> int:
 	# Randomly picks a tile id between `Cell.GROUND` and `Cell.OBSTACLE` types given the ground probability.
 	# Returns the id of the cell in the TileSet resource.
-	return _pick_random_texture(1) if _rng.randf() < probability else _pick_random_texture(2)
+	return _pick_random_texture(Cell.GROUND) if _rng.randf() < probability else _pick_random_texture(Cell.OBSTACLE)
 
 
 func _pick_random_texture(cell_type: int) -> int:
@@ -69,7 +69,7 @@ func _pick_random_texture(cell_type: int) -> int:
 	# Returns the id of the cell in the TileSet resource.
 	var interval := Vector2()
 	if cell_type == Cell.OUTER:
-		interval = Vector2(0, 9)
+		interval = Vector2(0, 0)
 	elif cell_type == Cell.GROUND:
 		interval = Vector2(10, 14)
 	elif cell_type == Cell.OBSTACLE:
@@ -85,8 +85,8 @@ func SpawnPlayer() -> void:
 	set_camera_limits()
 
 func set_camera_limits():
-	var map_limits = $TileMap.get_used_rect()
-	var map_cellsize = $TileMap.cell_size
+	var map_limits = _tile_map.get_used_rect()
+	var map_cellsize = _tile_map.cell_size
 	$Player/Camera2D.limit_left = map_limits.position.x * map_cellsize.x
 	$Player/Camera2D.limit_right = map_limits.end.x * map_cellsize.x
 	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
