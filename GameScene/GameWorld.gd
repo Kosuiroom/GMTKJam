@@ -1,7 +1,5 @@
 extends Node2D
 class_name GameWorld
-# Procedurally generates a tile-based map with a border.
-# Right click or press enter to re-generate the map.
 
 signal started
 signal finished
@@ -9,7 +7,7 @@ signal finished
 enum Cell {OBSTACLE, GROUND, OUTER}
 
 export var inner_size := Vector2(10, 8)
-export var perimeter_size := Vector2(1, 1)
+export var perimeter_size := Vector2(1, 10)
 export(float, 0 , 1) var ground_probability := 0.1
 
 # Public variables
@@ -17,14 +15,15 @@ onready var size := inner_size + 2 * perimeter_size
 
 # Private variables
 onready var _tile_map : TileMap = $TileMap
+onready var player = $Player
+onready var platform = $StaticPlatform
 var _rng := RandomNumberGenerator.new()
-
 
 func setup() -> void:
 	# Sets the game window size to twice the resolution of the world.
 	var map_size_px := size * _tile_map.cell_size
-	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, 
-	SceneTree.STRETCH_ASPECT_KEEP, map_size_px)
+#	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, 
+#	SceneTree.STRETCH_ASPECT_KEEP, map_size_px)
 	OS.set_window_size(2 * map_size_px)
 
 
@@ -46,9 +45,6 @@ func generate_perimeter() -> void:
 	for x in [0, size.x - 1]:
 		for y in range(0, size.y):
 			_tile_map.set_cell(x, y, _pick_random_texture(Cell.OUTER))
-	for x in range(1, size.x - 1):
-		for y in [0, size.y - 1]:
-			_tile_map.set_cell(x, y, _pick_random_texture(Cell.OUTER))
 
 
 func generate_inner() -> void:
@@ -59,6 +55,8 @@ func generate_inner() -> void:
 		for y in range(1, size.y - 1):
 			var cell := get_random_tile(ground_probability)
 			_tile_map.set_cell(x, y, cell)
+	
+	SpawnPlayer()
 
 
 func get_random_tile(probability: float) -> int:
@@ -78,7 +76,19 @@ func _pick_random_texture(cell_type: int) -> int:
 	elif cell_type == Cell.OBSTACLE:
 		interval = Vector2(15, 27)
 	return _rng.randi_range(interval.x, interval.y)
+	
+func SpawnPlayer() -> void:
+	player.position = Vector2(200,55)
+	platform.position = Vector2(200,90)
+	set_camera_limits()
 
+func set_camera_limits():
+	var map_limits = $TileMap.get_used_rect()
+	var map_cellsize = $TileMap.cell_size
+	$Player/Camera2D.limit_left = map_limits.position.x * map_cellsize.x
+	$Player/Camera2D.limit_right = map_limits.end.x * map_cellsize.x
+	$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
+#	$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 
 func _ready() -> void:
 	_rng.randomize()
