@@ -8,7 +8,7 @@ func physics_update(delta: float) -> void:
 		- Input.get_action_strength("mvLeft")
 	)
 	player.velocity.x = player.playerspeed * input_direction_x
-	player.velocity.y += player.get_gravity() * delta
+	player.velocity.y = player.get_gravity() * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 #	if Input.is_action_just_pressed("Jump"):
