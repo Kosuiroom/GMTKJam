@@ -173,6 +173,7 @@ margin_left = -58.0
 margin_top = 50.0
 margin_right = 142.0
 margin_bottom = 114.0
+rect_scale = Vector2( 1, 1 )
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 6 )]
 margin_left = 604.0

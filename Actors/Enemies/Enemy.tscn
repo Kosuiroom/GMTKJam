@@ -53,6 +53,7 @@ b = Vector2( -14, -5 )
 texture = SubResource( 1 )
 hframes = 5
 vframes = 5
+frame = 8
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL3R1dmFuL1BpY3R1cmVzL0FzZXByaXRlL0RpY2UgR2FtZS9EaWNlX0dhbWVfRW5lbXkuYXNlcHJpdGUKbGF5ZXJ8PUxheWVyIDEKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9RW5lbXkKb25seV92aXNpYmxlfD1GYWxzZQpvX2V4X3B8PQo="
 }
