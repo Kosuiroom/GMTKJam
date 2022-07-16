@@ -1,6 +1,7 @@
 extends Control
 
 onready var startbtn = $MenuItems/Start
+onready var Buttonsound = $Buttonsound
 
 func _ready():
 	startbtn.grab_focus()
@@ -12,3 +13,14 @@ func _on_Start_pressed():
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+
+func _on_Start_focus_exited():
+	Buttonsound.play()
+
+
+
+func _on_Exit_focus_exited():
+	Buttonsound.play()
+
