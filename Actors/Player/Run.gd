@@ -1,12 +1,21 @@
 # Run.gd
 extends PlayerState
 
+onready var sprite = $Player/Sprite
 
 func physics_update(delta: float) -> void:
 	var input_direction_x = (
 		Input.get_action_strength("mvRight")
 		- Input.get_action_strength("mvLeft")
 	)
+
+	print(input_direction_x)
+	if Input.is_action_pressed("mvRight"):
+		player.sprite.flip_h = false
+	if Input.is_action_pressed("mvLeft"):
+		player.sprite.flip_h = true
+	
+	
 	player.velocity.x = player.playerspeed * input_direction_x
 	player.velocity.y = player.get_gravity() * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)

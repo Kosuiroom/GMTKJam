@@ -6,7 +6,7 @@ var stomp_impulse = 600.0
 # If we get a message asking us to jump, we jump.
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
-		player.velocity.y = -player.get_gravity()
+		player.velocity.y += player.get_gravity()
 		player.animation.play("Player_Jump")
 
 func physics_update(delta: float) -> void:
@@ -31,7 +31,7 @@ func physics_update(delta: float) -> void:
 	
 	player.velocity.x = player.playerspeed * input_direction_x
 	# Vertical movement.
-	player.velocity.y += player.get_gravity() * delta
+	player.velocity.y = player.get_gravity() * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 	if !player.velocity.y < 0:
