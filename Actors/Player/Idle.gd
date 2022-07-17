@@ -5,6 +5,7 @@ func enter(_msg := {}) -> void:
 	player.animation.play("Player_Idle")
 
 func physics_update(delta: float) -> void:
+	
 	if not player.is_on_floor():
 		state_machine.transition_to("Jump")
 		return

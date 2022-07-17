@@ -62,12 +62,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Actors/Enemies/Enemy.gd"
-}, {
-"base": "Node2D",
-"class": "GameWorld",
-"language": "GDScript",
-"path": "res://GameScene/GameWorld.gd"
+"path": "res://Actors/Enemies/Enemies.gd"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",
@@ -106,7 +101,6 @@ _global_script_class_icons={
 "DialogicResources": "",
 "DialogicUtil": "",
 "Enemy": "",
-"GameWorld": "",
 "HistoryRow": "",
 "Player": "",
 "PlayerState": "",

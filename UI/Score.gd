@@ -1,6 +1,6 @@
 extends Label
 
-onready var timer = $Timer
+#onready var timer = $Timer
 
 func _process(delta):
 	text = "Score: "+String(Global.score)

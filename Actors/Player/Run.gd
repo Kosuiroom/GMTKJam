@@ -1,8 +1,6 @@
 # Run.gd
 extends PlayerState
 
-onready var sprite = $Player/Sprite
-
 func physics_update(delta: float) -> void:
 	var input_direction_x = (
 		Input.get_action_strength("mvRight")

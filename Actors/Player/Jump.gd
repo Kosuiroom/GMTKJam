@@ -1,7 +1,7 @@
 # Air.gd
 extends PlayerState
 
-var stomp_impulse = 600.0
+#var stomp_impulse = 600.0
 
 # If we get a message asking us to jump, we jump.
 func enter(msg := {}) -> void:
@@ -16,18 +16,6 @@ func physics_update(delta: float) -> void:
 		Input.get_action_strength("mvRight")
 		- Input.get_action_strength("mvLeft")
 	)
-	for i in player.get_slide_count():
-		var collision = player.get_slide_collision(i)
-		var collider = collision.collider
-		var is_stomp = (
-			collider is Enemy 
-			and player.is_on_floor()
-			and collision.normal.is_equal_approx(Vector2.UP)
-		)
-		
-		if is_stomp:
-			player.velocity.y = -stomp_impulse
-			(collider as Enemy).kill()
 	
 	player.velocity.x = player.playerspeed * input_direction_x
 	# Vertical movement.

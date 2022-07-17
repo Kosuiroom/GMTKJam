@@ -22,11 +22,11 @@ onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	animation.play("Player_Idle")
 
 func damage(amount):
+		print("Player took dmg: ", Global.playerhealth)
 		animation.play("Player_Damage")
 		Global.playerhealth -= amount
 		if Global.playerhealth <= 0:
