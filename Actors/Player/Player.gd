@@ -49,8 +49,3 @@ func _on_Hurtbox_body_entered(body):
 		if !hurtbox.is_invinc:
 			hurtbox.start_invinc(invincibility)
 			damage(1)
-		
-
-func _on_legs_body_entered(body):
-	if "Enemy" in body.name:
-		damage(1)

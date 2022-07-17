@@ -210,4 +210,3 @@ shape = SubResource( 12 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Invulnerabilitytimer" to="." method="_on_Invulnerabilitytimer_timeout"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
-[connection signal="body_entered" from="legs" to="." method="_on_legs_body_entered"]

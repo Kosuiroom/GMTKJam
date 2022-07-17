@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Enemies/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Icons/Dice_Game_Ghost.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 336, 10 )
@@ -10,6 +11,7 @@ extents = Vector2( 336, 10 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 641, 399 )
+jump_height = 200.0
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 728, 406 )
@@ -19,3 +21,8 @@ position = Vector2( 728, 406 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 711, 428 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 686, 454 )
+scale = Vector2( 18.54, 1 )
+texture = ExtResource( 3 )

@@ -6,10 +6,10 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
-		state_machine.transition_to("Run")
+		state_machine.transition_to("Jump")
 		return
 
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		state_machine.transition_to("Jump", {do_jump = true})
 	if Input.is_action_pressed("mvLeft") or Input.is_action_pressed("mvRight"):
 		state_machine.transition_to("Run")
