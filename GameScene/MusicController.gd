@@ -8,3 +8,6 @@ func _ready():
 func playgame():
 	$Music.stream = game
 	$Music.play()
+
+func stopplay():
+	$Music.stop()
