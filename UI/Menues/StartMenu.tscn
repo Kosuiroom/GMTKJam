@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/Menues/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PixelFont.ttf" type="DynamicFontData" id=2]
@@ -125,6 +125,9 @@ tracks/0/keys = {
 "values": [ 3.0, 4.0, 5.0 ]
 }
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 10, 51.2 )
+
 [sub_resource type="TileSet" id=12]
 0/name = "Tilemap.png 0"
 0/texture = ExtResource( 5 )
@@ -205,7 +208,7 @@ scale = Vector2( 6, 6 )
 texture = SubResource( 5 )
 hframes = 5
 vframes = 4
-frame = 17
+frame = 10
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL21pbGtkL09uZURyaXZlL0JpbGRlci9hcnQvQXNlc3ByaXRlL1Byb2plY3RzL0tvc3VpSmFtMDNfR01USzIwMjIvUGxheWVyLmFzZXByaXRlCmxheWVyfD1QbGF5ZXIKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9RGFuY2luZwpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
 }
@@ -219,16 +222,32 @@ anims/Player_Idle = SubResource( 9 )
 anims/Player_Jump = SubResource( 10 )
 anims/Player_Run = SubResource( 11 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2( 5, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 16, 41.6 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 15 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+scale = Vector2( 5, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 220.8, 44.8 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 15 )
+
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 928, 184 )
+scale = Vector2( 6, 6 )
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 5, 5 )
 tile_set = SubResource( 12 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0 )
-
-[node name="Node2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 920, 296 )
-scale = Vector2( 6, 6 )
 
 [connection signal="focus_exited" from="MenuItems/Start" to="." method="_on_Start_focus_exited"]
 [connection signal="pressed" from="MenuItems/Start" to="." method="_on_Start_pressed"]
