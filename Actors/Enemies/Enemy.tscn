@@ -70,5 +70,3 @@ position = Vector2( 0, -11 )
 [node name="jump" type="CollisionShape2D" parent="jumparea"]
 position = Vector2( 0, -10.875 )
 shape = SubResource( 4 )
-
-[connection signal="body_entered" from="jumparea" to="." method="_on_jumparea_body_entered"]

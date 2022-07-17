@@ -19,7 +19,14 @@ func physics_update(delta: float) -> void:
 	
 	player.velocity.x = player.playerspeed * input_direction_x
 	# Vertical movement.
-	player.velocity.y = player.get_gravity() * delta
+	var grav = player.get_gravity()
+	player.velocity.y = (grav + Global.speed) * delta
+	
+	if Global.speed == 0:
+		player.velocity.y = grav * delta
+	else:
+		player.velocity.y = (grav + Global.speed) * delta
+		
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 	if !player.velocity.y < 0:

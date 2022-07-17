@@ -2,9 +2,11 @@ extends Node
 
 var item
 var timer = 0
+var speedtimer = 0
 var is_dead = false
 var playerhealth = 3
 var PowerUpArray = []
+var speed = 0
 
 var list = ["res://Assets/Icons/Ghost_Icon.png",
 "res://Assets/Icons/Health_Icon.png",
