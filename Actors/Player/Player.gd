@@ -45,3 +45,6 @@ func _on_Hurtbox_body_entered(body):
 			animation.play("Player_Damage")
 			hurtbox.start_invinc(invincibility)
 			damage(1)
+	if "Endgame" in body.name:
+		print("walla")
+		get_tree().change_scene("res://GameScene/Endgame.tscn") 
