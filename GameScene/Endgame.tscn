@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/PixelFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Score.gd" type="Script" id=2]
+[ext_resource path="res://Assets/PixelFont.tres" type="Theme" id=3]
+[ext_resource path="res://GameScene/Endgame.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sound/powerUp2.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Tilemap.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -9,14 +13,139 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 50
+[sub_resource type="Theme" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+size = 45
+outline_size = 1
 font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 72
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/DancingPlayer.png-346429216746cae49a837f32050e60ce.stex"
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 2.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6.0, 7.0, 8.0, 9.0, 10.0, 9.0, 10.0, 11.0, 10.0, 9.0, 10.0, 9.0, 8.0, 7.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12.0, 13.0, 13.0, 14.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.0, 2.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15.0, 16.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3.0, 4.0, 5.0 ]
+}
+
+[sub_resource type="TileSet" id=15]
+0/name = "Tilemap.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 160, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 409, 70 )
+script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -37.0
@@ -27,22 +156,102 @@ rect_scale = Vector2( 4.56, 6.32 )
 color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 526.0
-margin_top = 294.0
-margin_right = 585.0
-margin_bottom = 325.0
+margin_left = 511.0
+margin_top = 134.0
+margin_right = 570.0
+margin_bottom = 165.0
 rect_scale = Vector2( 3, 3 )
 theme = SubResource( 2 )
 text = "TIME:"
 align = 2
 script = ExtResource( 2 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 409.0
-margin_top = 230.0
-margin_right = 849.0
-margin_bottom = 294.0
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_fonts/normal_font = SubResource( 3 )
+[node name="RichTextLabel3" type="Label" parent="."]
+margin_left = 752.0
+margin_top = 386.0
+margin_right = 1597.0
+margin_bottom = 743.0
+theme = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+text = "MADE BY: 
+DAVID BYSTRÖM
+PONTUS GÖTH
+TOWE ANDERSSON
+
+"
+
+[node name="RichTextLabel2" type="Label" parent="."]
+modulate = Color( 1, 0.627451, 0.207843, 1 )
+margin_left = 96.0
+margin_top = 386.0
+margin_right = 576.0
+margin_bottom = 586.0
+theme = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+text = "FOR GMTK 2022
+GAMEJAM
+"
+
+[node name="RichTextLabel" type="Label" parent="."]
+margin_left = 444.0
+margin_top = 59.0
+margin_right = 884.0
+margin_bottom = 123.0
+theme = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "GAME CLEARED"
-fit_content_height = true
+
+[node name="MenuItems" type="VBoxContainer" parent="."]
+modulate = Color( 0.972656, 0.970903, 0.961258, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -398.0
+margin_top = -133.0
+margin_right = 424.0
+margin_bottom = 123.0
+theme = ExtResource( 3 )
+
+[node name="Return" type="Button" parent="MenuItems"]
+margin_right = 822.0
+margin_bottom = 96.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "RETURN TO START "
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttonsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1136, 106 )
+scale = Vector2( 6, 6 )
+texture = SubResource( 6 )
+hframes = 5
+vframes = 4
+frame = 12
+__meta__ = {
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL21pbGtkL09uZURyaXZlL0JpbGRlci9hcnQvQXNlc3ByaXRlL1Byb2plY3RzL0tvc3VpSmFtMDNfR01USzIwMjIvUGxheWVyLmFzZXByaXRlCmxheWVyfD1QbGF5ZXIKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9RGFuY2luZwpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Player_Fall"
+anims/Player_Damage = SubResource( 7 )
+anims/Player_Dancing = SubResource( 8 )
+anims/Player_Fall = SubResource( 9 )
+anims/Player_Idle = SubResource( 10 )
+anims/Player_Jump = SubResource( 11 )
+anims/Player_Run = SubResource( 12 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 5, 5 )
+tile_set = SubResource( 15 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0 )
+
+[connection signal="pressed" from="MenuItems/Return" to="." method="_on_Return_pressed"]
