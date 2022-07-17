@@ -3,9 +3,9 @@ extends Label
 #onready var timer = $Timer
 
 func _process(delta):
-	text = "Score: "+String(Global.score)
+	text = "TIME: "+String(Global.timer)
 
 
 func _on_Timer_timeout():
-	Global.score += 14
+	Global.timer += 0.01
 

@@ -1,7 +1,7 @@
 extends Node
 
 var item
-var score = 0
+var timer = 0
 var is_dead = false
 var playerhealth = 3
 
