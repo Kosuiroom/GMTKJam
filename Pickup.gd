@@ -2,6 +2,7 @@ extends Area2D
 
 signal pickedup(pickedup)
 
+
 var list = ["res://Assets/Icons/Ghost_Icon.png",
 "res://Assets/Icons/Health_Icon.png",
 "res://Assets/Icons/Jump_Icon.png",
@@ -14,7 +15,6 @@ var list = ["res://Assets/Icons/Ghost_Icon.png",
 func _on_Powerup_body_entered(body):
 	randomize()
 	Global.item = list[randi() % list.size()]
-	
 	var loading = load(Global.item)
 	print(Global.item)
 	emit_signal("pickedup",loading)

@@ -22,3 +22,18 @@ func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 
+func _on_Hurtbox_area_entered(area):
+		Global.playerhealth -=1
+		animation.play("Player_Damage")
+
+		
+		
+		
+
+
+func _on_Invulnerabilitytimer_timeout():
+	animation.play("Player_Idle")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	animation.play("Player_Idle")

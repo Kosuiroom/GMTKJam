@@ -3,6 +3,8 @@ extends Node
 var item
 var score = 0
 var is_dead = false
+var playerhealth = 3
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

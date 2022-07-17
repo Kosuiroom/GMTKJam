@@ -15,8 +15,8 @@ extents = Vector2( 82.5, 18.5 )
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 16.5726, 6.63531, 16.5726, 6.63531, 27.9592, 12.6635, 31.3081, 20.701, 1.50223, 19.0265, 11.8841, 6.30042 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
@@ -73,14 +73,14 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 7 )
+2/shape = SubResource( 11 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -212,6 +212,18 @@ shape = SubResource( 4 )
 [node name="Pickup" parent="." instance=ExtResource( 8 )]
 position = Vector2( 347, 147 )
 
+[node name="Pickup2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 242, 152 )
+
+[node name="Pickup3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 169, 156 )
+
+[node name="Pickup4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 349, 211 )
+
+[node name="Pickup5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 222, 208 )
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 40, 7 )
 tile_set = SubResource( 5 )
@@ -219,3 +231,7 @@ cell_size = Vector2( 32, 32 )
 format = 1
 
 [connection signal="pickedup" from="Pickup" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
+[connection signal="pickedup" from="Pickup2" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
+[connection signal="pickedup" from="Pickup3" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
+[connection signal="pickedup" from="Pickup4" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
+[connection signal="pickedup" from="Pickup5" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
