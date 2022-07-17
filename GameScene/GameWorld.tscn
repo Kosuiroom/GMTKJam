@@ -606,34 +606,33 @@ color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-margin_left = -282.0
-margin_top = 157.0
-margin_right = -82.0
-margin_bottom = 261.0
-rect_scale = Vector2( 1, 1 )
-
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 6 )]
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 357.0
-margin_top = 32.0
-margin_right = 389.0
-margin_bottom = 136.0
-rect_scale = Vector2( 1, 1 )
+margin_left = 208.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 152.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -432.0
+margin_top = 276.0
+margin_right = -232.0
+margin_bottom = 380.0
+rect_scale = Vector2( 2, 2 )
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 480.0
-margin_top = 35.0
-margin_right = 480.0
-margin_bottom = 35.0
+margin_left = 976.0
+margin_top = 64.0
+margin_right = 976.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -641,7 +640,7 @@ margin_bottom = 35.0
 position = Vector2( 448, 352 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 526, 114 )
+position = Vector2( 526, 133 )
 
 [node name="Pickup" parent="." instance=ExtResource( 8 )]
 position = Vector2( 347, 147 )
