@@ -47,7 +47,7 @@ tracks/0/keys = {
 a = Vector2( 14, -5 )
 b = Vector2( -14, -5 )
 
-[node name="Node2D" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
