@@ -117,6 +117,7 @@ boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 [autoload]
 
 Global="*res://Global.gd"
+MusicController="*res://GameScene/MusicController.tscn"
 
 [display]
 

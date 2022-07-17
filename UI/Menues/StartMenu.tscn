@@ -205,7 +205,7 @@ scale = Vector2( 6, 6 )
 texture = SubResource( 5 )
 hframes = 5
 vframes = 4
-frame = 6
+frame = 17
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL21pbGtkL09uZURyaXZlL0JpbGRlci9hcnQvQXNlc3ByaXRlL1Byb2plY3RzL0tvc3VpSmFtMDNfR01USzIwMjIvUGxheWVyLmFzZXByaXRlCmxheWVyfD1QbGF5ZXIKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9RGFuY2luZwpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
 }

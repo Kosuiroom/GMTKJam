@@ -231,6 +231,7 @@ stream = ExtResource( 5 )
 position = Vector2( 1136, 106 )
 scale = Vector2( 6, 6 )
 texture = SubResource( 6 )
+flip_h = true
 hframes = 5
 vframes = 4
 frame = 12
