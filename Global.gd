@@ -4,6 +4,7 @@ var item
 var timer = 0
 var is_dead = false
 var playerhealth = 3
+var PowerUpArray = []
 
 # Declare member variables here. Examples:
 # var a = 2

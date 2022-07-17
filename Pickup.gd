@@ -13,9 +13,10 @@ var list = ["res://Assets/Icons/Ghost_Icon.png",
 
 
 func _on_Powerup_body_entered(body):
-	randomize()
-	Global.item = list[randi() % list.size()]
-	var loading = load(Global.item)
-	print(Global.item)
-	emit_signal("pickedup",loading)
-	queue_free()
+	if "Player" in body.name:
+		randomize()
+		Global.item = list[randi() % list.size()]
+		var loading = load(Global.item)
+		print(Global.item)
+		emit_signal("pickedup",loading)
+		queue_free()

@@ -5,6 +5,8 @@ func enter(_msg := {}) -> void:
 	player.animation.play("Player_Idle")
 
 func physics_update(delta: float) -> void:
+	player.velocity.y += player.get_gravity() * delta
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
 	if not player.is_on_floor():
 		state_machine.transition_to("Jump")

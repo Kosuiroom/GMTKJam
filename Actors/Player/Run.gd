@@ -6,8 +6,6 @@ func physics_update(delta: float) -> void:
 		Input.get_action_strength("mvRight")
 		- Input.get_action_strength("mvLeft")
 	)
-
-	print(input_direction_x)
 	if Input.is_action_pressed("mvRight"):
 		player.sprite.flip_h = false
 	if Input.is_action_pressed("mvLeft"):
