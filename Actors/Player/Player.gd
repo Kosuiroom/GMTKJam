@@ -1,8 +1,6 @@
 class_name Player
 extends KinematicBody2D
 
-
-onready var invulnerabilitytimer = $Invulnerabilitytimer
 onready var fsm := $StateMachine
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
@@ -25,10 +23,6 @@ func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 
-func _on_Invulnerabilitytimer_timeout():
-	animation.play("Player_Idle")
-
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	animation.play("Player_Idle")
 
@@ -45,7 +39,9 @@ func IsKilled():
 	get_tree().change_scene("res://../UI/Menues/StartMenu.tscn")
 
 func _on_Hurtbox_body_entered(body):
+	print("body: ", body)
 	if "Enemy" in body.name:
 		if !hurtbox.is_invinc:
+			animation.play("Player_Damage")
 			hurtbox.start_invinc(invincibility)
 			damage(1)

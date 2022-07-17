@@ -11,7 +11,7 @@
 load_path = "res://.import/Player_SpritesheetPlayer.png-51190edb7b85b1814f547d1fffa6ca54.stex"
 
 [sub_resource type="Animation" id=2]
-length = 0.25
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -142,9 +142,16 @@ extents = Vector2( 9.5, 10.5 )
 extents = Vector2( 7, 1.25 )
 
 [node name="Player" type="KinematicBody2D"]
+<<<<<<< Updated upstream
 position = Vector2( 517, 143 )
+=======
+position = Vector2( -35, -46 )
+>>>>>>> Stashed changes
 collision_mask = 4
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 jump_height = 100.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 1.0
@@ -152,11 +159,14 @@ jump_time_to_descent = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1, 79 )
 current = true
+<<<<<<< Updated upstream
 zoom = Vector2( 0.375, 0.375 )
 limit_left = 351
 limit_top = -50000
 limit_right = 720
 limit_bottom = 500000
+=======
+>>>>>>> Stashed changes
 editor_draw_limits = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -197,10 +207,6 @@ script = ExtResource( 6 )
 position = Vector2( -2.5, -1.5 )
 shape = SubResource( 1 )
 
-[node name="Invulnerabilitytimer" type="Timer" parent="."]
-wait_time = 2.246
-autostart = true
-
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource( 1 )
 
@@ -215,5 +221,4 @@ position = Vector2( -3, 9 )
 shape = SubResource( 12 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Invulnerabilitytimer" to="." method="_on_Invulnerabilitytimer_timeout"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
