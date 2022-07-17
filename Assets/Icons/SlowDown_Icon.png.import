@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/The-Unwanted.png-f8e839215358993b62df1cec2d12e798.stex"
+path="res://.import/SlowDown_Icon.png-5fadc5ba9d43f51d6a3f4075c43378f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/The-Unwanted.png"
-dest_files=[ "res://.import/The-Unwanted.png-f8e839215358993b62df1cec2d12e798.stex" ]
+source_file="res://Assets/Icons/SlowDown_Icon.png"
+dest_files=[ "res://.import/SlowDown_Icon.png-5fadc5ba9d43f51d6a3f4075c43378f2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

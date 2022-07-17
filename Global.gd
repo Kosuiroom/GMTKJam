@@ -1,6 +1,8 @@
 extends Node
 
+var item
 var score = 0
+var is_dead = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

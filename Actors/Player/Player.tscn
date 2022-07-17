@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Actors/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://FSM/statemachine.gd" type="Script" id=3]
@@ -13,20 +13,32 @@ load_path = "res://.import/Player_SpritesheetPlayer.png-51190edb7b85b1814f547d1f
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 14.0 ]
+"values": [ 17.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-length = 0.6
+[sub_resource type="Animation" id=9]
+length = 2.8
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -35,10 +47,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 6.0, 7.0, 8.0 ]
+"values": [ 6.0, 7.0, 8.0, 9.0, 10.0, 9.0, 10.0, 11.0, 10.0, 9.0, 10.0, 9.0, 8.0, 7.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -54,7 +66,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 9.0, 10.0, 10.0, 11.0 ]
+"values": [ 12.0, 13.0, 13.0, 14.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -86,7 +98,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 12.0, 13.0 ]
+"values": [ 15.0, 16.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -103,6 +115,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 3.0, 4.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -122,22 +149,23 @@ current = true
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, -1 )
 texture = SubResource( 8 )
-hframes = 4
+hframes = 5
 vframes = 4
-frame = 6
+frame = 17
 __meta__ = {
 "_edit_group_": true,
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL1BsYXllci5hc2Vwcml0ZQpsYXllcnw9UGxheWVyCm9wX2V4cHw9RmFsc2UKb19mb2xkZXJ8PQpvX25hbWV8PVBsYXllcl9TcHJpdGVzaGVldApvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PUM6L1VzZXJzL21pbGtkL09uZURyaXZlL0JpbGRlci9hcnQvQXNlc3ByaXRlL1Byb2plY3RzL0tvc3VpSmFtMDNfR01USzIwMjIvUGxheWVyLmFzZXByaXRlCmxheWVyfD1QbGF5ZXIKb3BfZXhwfD1UcnVlCm9fZm9sZGVyfD0Kb19uYW1lfD1QbGF5ZXJfU3ByaXRlc2hlZXQKb25seV92aXNpYmxlfD1GYWxzZQpvX2V4X3B8PQo="
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 anims/Player_Damage = SubResource( 2 )
-anims/Player_Dance = SubResource( 3 )
+anims/Player_Dancing = SubResource( 9 )
 anims/Player_Fall = SubResource( 4 )
 anims/Player_Idle = SubResource( 5 )
 anims/Player_Jump = SubResource( 6 )
 anims/Player_Run = SubResource( 7 )
+anims/RESET = SubResource( 10 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -156,3 +184,8 @@ script = ExtResource( 6 )
 visible = false
 position = Vector2( -1, -1 )
 shape = SubResource( 1 )
+
+[node name="Invulnerabilitytimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Invulnerabilitytimer" to="." method="_on_Invulnerabilitytimer_timeout"]

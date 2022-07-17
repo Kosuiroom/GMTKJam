@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+
+onready var invulnerabilitytimer = $Invulnerabilitytimer
 onready var fsm := $StateMachine
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
@@ -18,3 +20,5 @@ onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
+
+

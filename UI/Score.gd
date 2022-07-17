@@ -7,4 +7,5 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	Global.score += 23
+	Global.score += 14
+

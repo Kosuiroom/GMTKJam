@@ -1,17 +1,21 @@
 extends Area2D
 
-var list = ["res://Assets/Icons/Dice_Game_Ghost.png",
-"res://Assets/Icons/Dice_Game_Heartup.png",
-"res://Assets/Icons/Dice_Game_Jump.png",
-"res://Assets/Icons/Dice_Game_Slowdown.png",
-"res://Assets/Icons/Dice_Game_SmallSize.png",
-"res://Assets/Icons/Dice_Game_Speedup.png"]
+signal pickedup(pickedup)
+
+var list = ["res://Assets/Icons/Ghost_Icon.png",
+"res://Assets/Icons/Health_Icon.png",
+"res://Assets/Icons/Jump_Icon.png",
+"res://Assets/Icons/Shrink_Icon.png",
+"res://Assets/Icons/SlowDown_Icon.png",
+"res://Assets/Icons/Speedup_Icon.png"]
 
 
 
 func _on_Powerup_body_entered(body):
-	var item
-	item = list[randi() % list.size()]
-	print(list)
-	print(item)
+	randomize()
+	Global.item = list[randi() % list.size()]
+	
+	var loading = load(Global.item)
+	print(Global.item)
+	emit_signal("pickedup",loading)
 	queue_free()
