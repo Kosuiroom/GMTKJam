@@ -962,4 +962,5 @@ shape = SubResource( 46 )
 [connection signal="pickedup" from="Pickup4" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
 [connection signal="pickedup" from="Pickup5" to="CanvasLayer/Inventory" method="_on_Pickup_pickedup"]
 [connection signal="body_entered" from="Spikes" to="Spikes" method="_on_Spikes_body_entered"]
+[connection signal="killplayer" from="Spikes" to="Player" method="_on_Spikes_killplayer"]
 [connection signal="body_entered" from="Endgame" to="." method="_on_Endgame_body_entered"]
