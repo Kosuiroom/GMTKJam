@@ -2,17 +2,14 @@ extends KinematicBody2D
 class_name Enemy
 onready var jumparea = $jumparea/jump
 onready var hurt = $hurt
-signal powerup()
+export var slimeSpeed = 50
+export var direction = 1
+var slimvol = Vector2.ZERO
 
-func _on_jumparea_body_entered(body):
-	if "Player" in body.name:
-		set_collision_layer_bit(1,false)
-		set_collision_mask_bit(1,false)
-		$jumparea.set_collision_layer_bit(1,false)
-		$jumparea.set_collision_mask_bit(1,false)
-		Give_Powerup()
-		queue_free()
+func _physics_process(delta):
+	if is_on_wall():
+		direction = direction * -1
 
-
-func Give_Powerup():
-	emit_signal("powerup")
+	slimvol.x = slimeSpeed * direction
+	
+	move_and_slide(slimvol, Vector2.UP)
