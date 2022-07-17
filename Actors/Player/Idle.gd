@@ -9,7 +9,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Run")
 		return
 
-#	if Input.is_action_just_pressed("Jump"):
-#		state_machine.transition_to("Jump", {do_jump = true})
+	if Input.is_action_just_pressed("Jump"):
+		state_machine.transition_to("Jump", {do_jump = true})
 	if Input.is_action_pressed("mvLeft") or Input.is_action_pressed("mvRight"):
 		state_machine.transition_to("Run")

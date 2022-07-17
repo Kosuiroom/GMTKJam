@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Actors/Enemies/Enemy.gd" type="Script" id=1]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/EnemyLayer 1.png-6c7bbf34791370dc236471f0afb2d499.stex"
@@ -10,6 +12,10 @@ b = Vector2( -12, 17 )
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -1, 0 )
 b = Vector2( 12, 16 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 14, -5 )
+b = Vector2( -14, -5 )
 
 [sub_resource type="Animation" id=2]
 length = 1.1
@@ -43,11 +49,14 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 ]
 }
 
-[sub_resource type="SegmentShape2D" id=6]
-a = Vector2( 14, -5 )
-b = Vector2( -14, -5 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5, 3.75 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 15, 7 )
 
 [node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
@@ -66,10 +75,22 @@ shape = SubResource( 4 )
 position = Vector2( 0, -22 )
 shape = SubResource( 5 )
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Enemy_Idle"
 anims/Enemy_Death = SubResource( 2 )
 anims/Enemy_Idle = SubResource( 3 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+[node name="jumparea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jumparea"]
+position = Vector2( 0, -20 )
+shape = SubResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -9 )
+shape = SubResource( 8 )

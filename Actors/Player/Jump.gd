@@ -15,7 +15,6 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 	if player.is_on_floor():
-		print("is on floor")
 		if is_equal_approx(player.velocity.x, 0.0):
 			state_machine.transition_to("Idle")
 		else:

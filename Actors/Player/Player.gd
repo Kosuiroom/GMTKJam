@@ -6,6 +6,9 @@ onready var invulnerabilitytimer = $Invulnerabilitytimer
 onready var fsm := $StateMachine
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
+onready var hurtbox = $Hurtbox
+
+const invincibility = 1.5
 
 var velocity := Vector2.ZERO
 export var playerspeed = 200.0
@@ -22,18 +25,32 @@ func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 
-func _on_Hurtbox_area_entered(area):
-		Global.playerhealth -=1
-		animation.play("Player_Damage")
-
-		
-		
-		
-
-
 func _on_Invulnerabilitytimer_timeout():
 	animation.play("Player_Idle")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	animation.play("Player_Idle")
+
+func damage(amount):
+		animation.play("Player_Damage")
+		Global.playerhealth -= amount
+		if Global.playerhealth <= 0:
+			IsKilled()
+			
+func IsKilled():
+	Global.is_dead = true
+	print("player died")
+	yield(get_tree().create_timer(3), "timeout")
+	get_tree().change_scene("res://../UI/Menues/StartMenu.tscn")
+
+func _on_Hurtbox_body_entered(body):
+	if "Enemy" in body.name:
+		if !hurtbox.is_invinc:
+			hurtbox.start_invinc(invincibility)
+			damage(1)
+		
+
+func _on_legs_body_entered(body):
+	if "Enemy" in body.name:
+		damage(1)
