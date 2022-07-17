@@ -142,11 +142,7 @@ extents = Vector2( 9.5, 10.5 )
 extents = Vector2( 7, 1.25 )
 
 [node name="Player" type="KinematicBody2D"]
-<<<<<<< Updated upstream
 position = Vector2( 517, 143 )
-=======
-position = Vector2( -35, -46 )
->>>>>>> Stashed changes
 collision_mask = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -159,14 +155,11 @@ jump_time_to_descent = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1, 79 )
 current = true
-<<<<<<< Updated upstream
 zoom = Vector2( 0.375, 0.375 )
 limit_left = 351
 limit_top = -50000
 limit_right = 720
 limit_bottom = 500000
-=======
->>>>>>> Stashed changes
 editor_draw_limits = true
 
 [node name="Sprite" type="Sprite" parent="."]
